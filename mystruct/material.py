@@ -1,6 +1,7 @@
 class Material:
     def __init__(self):
         self.id = None
+        self.type = None
         self.young = None
         self.rho = None
 
