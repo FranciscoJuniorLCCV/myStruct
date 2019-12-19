@@ -6,7 +6,7 @@ class Element:
     """Class with the definition of the element
     """
 
-    def __init__(self, _id, node1, node2, young, area, rho):
+    def __init__(self, _id, node1, node2, young, rho, area):
         self.id = _id
         self.node1 = node1
         self.node2 = node2
@@ -26,10 +26,10 @@ class Element:
         self.compile_mass_matrix()
 
     def calc_length(self):
-        self.length = length_element_plane(self.node1, self.node2)
+        self.length = length_element_plane(self.node1.coords, self.node2.coords)
 
     def compile_rotation_matrix(self):
-        self.rotation_matrix = rot_mat_plane_truss(self.node1, self.node2)
+        self.rotation_matrix = rot_mat_plane_truss(self.node1.coords, self.node2.coords)
 
     def compile_constitutive_matrix(self):
         self.constitutive_matrix = const_mat_plane_truss(self.young,
